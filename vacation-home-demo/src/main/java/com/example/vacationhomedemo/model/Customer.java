@@ -1,6 +1,8 @@
 package com.example.vacationhomedemo.model;
 import jakarta.persistence.*;
 
+import java.util.List;
+
 
 @Entity
 @Table(name="customer")
@@ -22,7 +24,10 @@ public class Customer {
     private String phoneNumber;
     @Column(name="email")
     private String email;
-
+    @OneToMany(mappedBy = "customer",
+            fetch = FetchType.LAZY,
+            cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH} )
+    private List<Reservation> reservations;
 
     // define constructors
     public Customer() {

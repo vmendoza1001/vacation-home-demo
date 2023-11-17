@@ -21,6 +21,10 @@ public class Reservation {
     @Column(name = "end_date")
     private LocalDate endDate;
 
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})
+    @JoinColumn(name="customer_id")
+    private Customer customer;
+
     // define constructors
     public Reservation() {
     }
