@@ -1,9 +1,10 @@
 package com.example.vacationhomedemo.security.dao;
 
+import com.example.vacationhomedemo.security.model.User;
+
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 

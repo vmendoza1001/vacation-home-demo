@@ -1,10 +1,11 @@
 package com.example.vacationhomedemo.security.dao;
 
-import org.springframework.security.core.userdetails.User;
+import com.example.vacationhomedemo.security.model.User;
 
 public interface UserDao {
 
-    User findByUserName(String userName);
+    com.example.vacationhomedemo.security.model.User findByUserName(String userName);
 
     void save(User user);
+
 }
