@@ -7,6 +7,4 @@ import java.util.List;
 
 public interface ReservationRepository extends JpaRepository <Reservation, Integer> {
 
-
-    List<Reservation> findAllByOrderByLastNameAsc();
 }
