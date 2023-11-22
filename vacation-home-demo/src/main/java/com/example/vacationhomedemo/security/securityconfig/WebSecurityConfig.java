@@ -32,7 +32,8 @@ public class WebSecurityConfig {
 
         http.authorizeHttpRequests(configurer ->
                         configurer
-                                //.requestMatchers("/")
+
+                                .requestMatchers("/").permitAll()
                                 .requestMatchers("/register/**").permitAll()
                                 .requestMatchers("/customers/**").hasAnyRole("CUSTOMER", "EMPLOYEE", "ADMINISTRATOR")
                                 .requestMatchers("/reservation-list").hasAnyRole("EMPLOYEE", "ADMINISTRATOR")
