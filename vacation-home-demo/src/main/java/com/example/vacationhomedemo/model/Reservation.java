@@ -1,5 +1,6 @@
 package com.example.vacationhomedemo.model;
 
+import com.example.vacationhomedemo.security.model.User;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
@@ -27,6 +28,7 @@ public class Reservation {
     @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})
     @JoinColumn(name="customer_id")
     private Customer customer;
+
 
     // define constructors
     public Reservation() {

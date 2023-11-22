@@ -1,4 +1,5 @@
 package com.example.vacationhomedemo.model;
+import com.example.vacationhomedemo.security.model.User;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -34,6 +35,9 @@ public class Customer {
             fetch = FetchType.LAZY,
             cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH} )
     private List<Reservation> reservations;
+
+    @OneToOne(mappedBy = "customer", cascade = CascadeType.ALL)
+    private User user;
 
     // define constructors
     public Customer() {

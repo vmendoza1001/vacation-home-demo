@@ -1,4 +1,5 @@
 package com.example.vacationhomedemo.model;
+import com.example.vacationhomedemo.security.model.User;
 import jakarta.persistence.*;
 
 
@@ -27,6 +28,8 @@ public class Administrator {
     @Column(name="email")
     private String email;
 
+    @OneToOne(mappedBy = "administrator", cascade = CascadeType.ALL)
+    private User user;
 
     // define constructors
     public Administrator() {

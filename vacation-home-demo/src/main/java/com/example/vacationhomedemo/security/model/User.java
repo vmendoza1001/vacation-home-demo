@@ -1,5 +1,8 @@
 package com.example.vacationhomedemo.security.model;
 
+import com.example.vacationhomedemo.model.Administrator;
+import com.example.vacationhomedemo.model.Customer;
+import com.example.vacationhomedemo.model.Employee;
 import jakarta.persistence.*;
 
 import java.util.Collection;
@@ -30,6 +33,18 @@ public class User {
         joinColumns = @JoinColumn(name = "user_id"),
         inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Collection<Role> roles;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "administrator_id")
+    private Administrator administrator;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "customer_id")
+    private Customer customer;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "employee_id")
+    private Employee employee;
 
     public User() {
     }
