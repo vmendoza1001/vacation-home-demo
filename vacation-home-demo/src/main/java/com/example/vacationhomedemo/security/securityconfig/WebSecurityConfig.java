@@ -35,9 +35,12 @@ public class WebSecurityConfig {
 
                                 .requestMatchers("/").permitAll()
                                 .requestMatchers("/register/**").permitAll()
-                                .requestMatchers("/customers/**").hasAnyRole("CUSTOMER", "EMPLOYEE", "ADMINISTRATOR")
-                                .requestMatchers("/reservation-list").hasAnyRole("EMPLOYEE", "ADMINISTRATOR")
-                                .requestMatchers("/employees/**").hasRole("ADMINISTRATOR")
+                                .requestMatchers("/customer/**").hasAnyRole("CUSTOMER", "EMPLOYEE", "ADMINISTRATOR")
+                                .requestMatchers("/reservation/**").hasAnyRole("CUSTOMER", "EMPLOYEE", "ADMINISTRATOR")
+                                .requestMatchers("/reservations-list").hasAnyRole("EMPLOYEE", "ADMINISTRATOR")
+                                .requestMatchers("/employees-list/**").hasRole("ADMINISTRATOR")
+                                .requestMatchers("/users-list/**").hasRole("ADMINISTRATOR")
+
                 )
                 .formLogin(form ->
                         form

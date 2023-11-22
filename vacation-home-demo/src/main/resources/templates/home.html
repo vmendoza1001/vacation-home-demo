@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Home Page</title>
+</head>
+<body>
+ <h3>Home Page!</h3>
+
+<br><br>
+ <!-- display user name and role(s) -->
+
+ <p>
+   User: <span sec:authentication="principal.username"></span>
+   <br><br>
+   Role(s): <span sec:authentication="principal.authorities"></span>
+ </p>
+
+ <div sec:authorize="hasRole('CUSTOMER')">
+
+
+   <p>
+     <a th:href="@{/reservation}">Create New Reservation</a>
+
+   </p>
+
+ </div>
+
+ <div sec:authorize="hasRole('EMPLOYEE')">
+
+
+   <p>
+     <a th:href="@{/reservations-list-view-only}">Reservations List View</a>
+
+   </p>
+
+ </div>
+
+ <div sec:authorize="hasRole('ADMINISTRATOR')">
+
+
+   <p>
+     <a th:href="@{/reservations-list}">Reservations List Modify</a>
+
+   </p>
+
+ </div>
+ <hr>
+
+ <!-- Add a logout button -->
+ <form action="#" th:action="@{/logout}"
+       method="POST">
+
+   <input type="submit" value="Logout" class="btn btn-outline-primary mt-2" />
+
+ </form>
+
+
+</body>
+</html>
