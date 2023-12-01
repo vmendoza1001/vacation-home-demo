@@ -1,8 +1,5 @@
 package com.example.vacationhomedemo.security.model;
 
-import com.example.vacationhomedemo.model.Administrator;
-import com.example.vacationhomedemo.model.Customer;
-import com.example.vacationhomedemo.model.Employee;
 import jakarta.persistence.*;
 
 import java.util.Collection;
@@ -25,8 +22,14 @@ public class User {
     @Column(name = "enabled")
     private boolean enabled;
 
+    @Column(name = "first_name")
+    private String firstName;
+
+    @Column(name = "last_name")
+    private String lastName;
+
     @Column(name = "email")
-    private String email;
+     private String email;
 
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(name = "users_roles",
@@ -34,7 +37,7 @@ public class User {
         inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Collection<Role> roles;
 
-    @OneToOne(cascade = CascadeType.ALL)
+  /*  @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "administrator_id")
     private Administrator administrator;
 
@@ -44,15 +47,18 @@ public class User {
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "employee_id")
-    private Employee employee;
+    private Employee employee; */
 
     public User() {
     }
 
-    public User(String userName, String password, boolean enabled) {
+    public User(String userName, String password, boolean enabled, String firstName, String lastName, String email) {
         this.userName = userName;
         this.password = password;
         this.enabled = enabled;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
     }
 
     public User(String userName, String password, boolean enabled, Collection<Role> roles) {
@@ -94,13 +100,17 @@ public class User {
         this.enabled = enabled;
     }
 
-    public String getEmail() {
-        return email;
-    }
+    public String getFirstName() { return firstName; }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+    public void setFirstName(String firstName) { this.firstName = firstName; }
+
+    public String getLastName() { return lastName; }
+
+    public void setLastName(String lastName) { this.lastName = lastName; }
+
+    public String getEmail() { return email; }
+
+    public void setEmail(String email) { this.email = email; }
 
     public Collection<Role> getRoles() {
         return roles;
@@ -117,6 +127,8 @@ public class User {
                 ", userName='" + userName + '\'' +
                 ", password='" + password + '\'' +
                 ", enabled=" + enabled +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +
                 ", roles=" + roles +
                 '}';

@@ -47,6 +47,8 @@ public class UserServiceImpl implements UserService {
         // assign user details to the user object
         user.setUserName(webUser.getUserName());
         user.setPassword(passwordEncoder.encode(webUser.getPassword()));
+        user.setFirstName(webUser.getFirstName());
+        user.setLastName(webUser.getLastName());
         user.setEmail(webUser.getEmail());
 
         // give user default role of "customer"

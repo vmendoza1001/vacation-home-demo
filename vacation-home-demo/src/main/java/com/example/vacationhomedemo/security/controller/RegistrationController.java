@@ -12,10 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.InitBinder;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.logging.Logger;
 
@@ -48,17 +45,17 @@ public class RegistrationController {
         return "register/registration-form";
     }
 
-    @GetMapping("/processRegistrationForm")
+    @PostMapping("/processRegistrationForm")
     public String processRegistrationForm(
             @Valid @ModelAttribute("webUser") WebUser theWebUser,
-            BindingResult theBingingResult,
+            BindingResult theBindingResult,
             HttpSession session, Model  theModel) {
 
        String userName = theWebUser.getUserName();
-       logger.info("Processing registration from for: " + userName);
+       logger.info("Processing registration form for: " + userName);
 
        // form validation
-       if (theBingingResult.hasErrors()) {
+       if (theBindingResult.hasErrors()) {
            return "register/registration-form";
        }
 

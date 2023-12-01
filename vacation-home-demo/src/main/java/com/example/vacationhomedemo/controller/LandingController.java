@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class LandingController {
 
         @GetMapping("/")
-        public String landingPage() {
+        public String landing() {
 
-            return "LandingPage";
+            return "Landing";
         }
 }

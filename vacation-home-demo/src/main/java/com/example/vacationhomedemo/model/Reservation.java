@@ -14,7 +14,7 @@ public class Reservation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private int id;
+    private Long id;
 
     @Column(name = "number_of_guests")
     private int numberOfGuests;
@@ -25,9 +25,9 @@ public class Reservation {
     @Column(name = "end_date")
     private LocalDate endDate;
 
-    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})
-    @JoinColumn(name="customer_id")
-    private Customer customer;
+   // @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})
+   // @JoinColumn(name="user_id")
+   // private User user;
 
 
     // define constructors
@@ -40,14 +40,23 @@ public class Reservation {
         this.endDate = endDate;
     }
 
-    public int getId() {
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
+  /*  public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+*/
     public int getNumberOfGuests() {
         return numberOfGuests;
     }
@@ -73,13 +82,14 @@ public class Reservation {
     }
 
     // define toString
+
+
     @Override
     public String toString() {
         return "Reservation{" +
                 "id=" + id +
                 ", numberOfGuests=" + numberOfGuests +
                 ", startDate=" + startDate +
-                ", endDate=" + endDate +
-                '}';
+                ", endDate=" + endDate +'}';
     }
 }
