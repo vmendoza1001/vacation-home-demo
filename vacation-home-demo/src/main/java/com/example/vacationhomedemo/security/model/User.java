@@ -37,28 +37,13 @@ public class User {
         inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Collection<Role> roles;
 
-  /*  @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "administrator_id")
-    private Administrator administrator;
-
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "customer_id")
-    private Customer customer;
-
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "employee_id")
-    private Employee employee; */
-
     public User() {
     }
 
-    public User(String userName, String password, boolean enabled, String firstName, String lastName, String email) {
+    public User(String userName, String password, boolean enabled) {
         this.userName = userName;
         this.password = password;
         this.enabled = enabled;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
     }
 
     public User(String userName, String password, boolean enabled, Collection<Role> roles) {

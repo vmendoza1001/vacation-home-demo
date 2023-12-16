@@ -34,23 +34,22 @@ public class WebSecurityConfig {
                         configurer
 
                                 .requestMatchers("/").permitAll()
+                                .requestMatchers("/css/**", "/js/**", "/images/**", "/static/**").permitAll()
                                 .requestMatchers("/register/**").permitAll()
-                                .requestMatchers("/customer/**").hasAnyRole("CUSTOMER", "EMPLOYEE", "ADMINISTRATOR")
-                                .requestMatchers("/reservation/**").hasAnyRole("CUSTOMER", "EMPLOYEE", "ADMINISTRATOR")
-                                .requestMatchers("/reservations-list").hasAnyRole("EMPLOYEE", "ADMINISTRATOR")
-                                .requestMatchers("/employees-list/**").hasRole("ADMINISTRATOR")
-                                .requestMatchers("/users-list/**").hasRole("ADMINISTRATOR")
+                                .requestMatchers("/home/**").hasAnyRole("CUSTOMER", "EMPLOYEE", "ADMINISTRATOR")
+                                .requestMatchers("/reservations/reservation").hasRole("CUSTOMER")
+                                .anyRequest().authenticated()
 
                 )
                 .formLogin(form ->
                         form
                                 .loginPage("/showMyLoginPage")
                                 .loginProcessingUrl("/authenticateTheUser")
+                                .defaultSuccessUrl("/home", true)
                                 .permitAll()
 
                 )
                 .logout(logout -> logout.permitAll()
-                        .logoutSuccessUrl("/")
                 )
                 .exceptionHandling(configurer ->
                         configurer.accessDeniedPage("/access-denied")

@@ -25,11 +25,6 @@ public class Reservation {
     @Column(name = "end_date")
     private LocalDate endDate;
 
-   // @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})
-   // @JoinColumn(name="user_id")
-   // private User user;
-
-
     // define constructors
     public Reservation() {
     }
@@ -49,14 +44,6 @@ public class Reservation {
         this.id = id;
     }
 
-  /*  public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-*/
     public int getNumberOfGuests() {
         return numberOfGuests;
     }
@@ -82,8 +69,6 @@ public class Reservation {
     }
 
     // define toString
-
-
     @Override
     public String toString() {
         return "Reservation{" +
