@@ -10,6 +10,6 @@ public class LandingController {
         @GetMapping("/")
         public String landing() {
 
-            return "Landing";
+            return "landing";
         }
 }

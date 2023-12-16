@@ -8,22 +8,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class HomeController {
 
-    @GetMapping("/customer")
-    public String customer() {
+    @GetMapping("/home")
+    public String showHome() {
 
-        return "reservation";
+        return "home";
+
     }
-
-    @GetMapping("/employee")
-    public String employee() {
-
-        return "reservations-list-read-only";
-    }
-
-    @GetMapping("/administrator")
-    public String administrator() {
-
-        return "reservations-list";
-    }
-
 }
