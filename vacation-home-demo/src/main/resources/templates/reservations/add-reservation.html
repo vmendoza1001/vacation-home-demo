@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add Reservation</title>
+    <link rel="stylesheet" href="/css/common.css">
+    <link rel="stylesheet" href="/css/add-reservation.css">
+
+</head>
+<body>
+<h1>Create Reservation</h1>
+<div class="form-container">
+<!-- <h1 th:text="${reservation.id} ? 'Edit Reservation' : 'Add Reservation'"></h1> -->
+<form th:action="@{/reservations/save}" th:object="${reservation}" method="post">
+    <input type="hidden" th:field="*{id}" />
+    <div>
+        <label id="numberOfGuests">Number of Guests:</label>
+        <input type="number" th:field="*{numberOfGuests}" />
+    </div>
+    <div>
+        <label id="startDate">Start Date:</label>
+        <input type="date" th:field="*{startDate}" />
+    </div>
+    <div>
+        <label id="endDate">End Date:</label>
+        <input type="date" th:field="*{endDate}" />
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Save</button>
+    </div>
+</form>
+<a href="/home">Cancel</a>
+</div>
+
+</body>
+
+<footer>
+    <p>&copy; Luxury Apartments 2023</p>
+</footer>
+
+</html>

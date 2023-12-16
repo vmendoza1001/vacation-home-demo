@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Reservation Details</title>
+
+    <link rel="stylesheet" href="/css/common.css">
+
+    <!-- Include CSS and other head elements -->
+</head>
+<body>
+<h1 style="text-align: center;" >Reservation Details</h1>
+<p><strong>ID:</strong> <span th:text="${reservation.id}"></span></p>
+<p><strong>Number of Guests:</strong> <span th:text="${reservation.numberOfGuests}"></span></p>
+<p><strong>Start Date:</strong> <span th:text="${reservation.startDate}"></span></p>
+<p><strong>End Date:</strong> <span th:text="${reservation.endDate}"></span></p>
+<a href="/reservations">Back to List</a>
+
+</body>
+
+<footer>
+    <p>&copy; Luxury Apartments 2023</p>    <!-- Include footer elements -->
+</footer>
+
+</html>

@@ -1,12 +1,243 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="www.thymeleaf.org" >
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
+    <title>Landing</title>
+
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Ensures optimal rendering on mobile devices. -->
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <!-- Import the font -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <!-- Import the font awesome library -->
+    <link rel="stylesheet" href="/css/image-float.css">    <!-- Import the custom CSS -->
+
+
+    <style>
+    img.panorama {
+          width: 100%;
+          height: auto;
+        }
+     .scrolling-wrapper {
+          overflow-x: scroll;
+          overflow-y: hidden;
+          white-space: nowrap;
+        }
+    .scrolling-wrapper img {
+          display: inline-block;
+          height: 200px;
+          width: auto;
+          margin: 10px;
+        }
+    .fancy-title {
+          color: #000; /* Black */
+          font-family: 'Great Vibes', cursive; /* Great Vibes font*/
+          font-size: 3em; /* Bigger size */
+          text-align: center; /* Center align */
+          padding: 20px; /* Some padding */
+          margin-bottom: 20px; /* Some margin to next element */
+        }
+    .services-section {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 2em;
+            background-color: #f2f2f2;
+        }
+        .service-item {
+            margin: 1em;
+            text-align: center;
+            flex: 1 0 20%; /* This will make sure the items flex in responsive way and will wrap to next line if necessary */
+        }
+        .service-item i {
+            font-size: 2em;
+            margin-bottom: 0.5em;
+            color: #333;
+        }
+            .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000; /* Ensure the navbar stays on top of all other content */
+        }
+
+         html, body {
+            height: 100%;
+            margin: 0;
+        }
+
+        body {
+            padding-top: 60px; /* Add a top padding to avoid content being hidden beneath the navbar */
+        }
+
+        .content {
+            flex: 1; /* This will allow the content to expand and push the footer down */
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #ffffff;
+            border-top: 1px solid #dddddd;
+            bottom: 0;
+            width: 100%;
+        }
+
+        footer p {
+            margin: 0;
+            color: #000000;
+        }
+
+
+
+    </style>
 </head>
 <body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="#apartmentSection">Apartment</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#locationSection">Location</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/register/registration-form}">Registration</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/login}">Login</a>
+            </li>
+        </ul>
+    </div>
+</nav>
 
-<h3>Hi There!</h3>
-<a class="login btn btn-primary" th:href="@{/login}">Login</a>
+<!-- Display the panoramic image -->
+<img class="panorama" th:src="@{/images/Piantini.jpg}" alt="Piantini Neighborhood"/>
+
+<div class="container">
+    <h1 class="fancy-title">Luxury Apartment in Santo Domingo, Dominican Republic</h1>
+</div>
+
+<div class="scrolling-wrapper">
+    <img th:src="@{/images/Apartment1.jpeg}" alt="Apartment1"/>
+    <img th:src="@{/images/Apartment2.jpeg}" alt="Apartment2"/>
+    <img th:src="@{/images/Apartment3.jpeg}" alt="Apartment3"/>
+    <img th:src="@{/images/Apartment4.jpeg}" alt="Apartment4"/>
+    <img th:src="@{/images/Apartment5.jpeg}" alt="Apartment5"/>
+    <img th:src="@{/images/Apartment6.jpeg}" alt="Apartment6"/>
+    <img th:src="@{/images/Apartment7.jpeg}" alt="Apartment7"/>
+</div>
+
+<br><br>
+<div class="container" id="apartmentSection">
+    <h2>Apartment</h2>
+    <p> This delightful one-bedroom apartment blends style and comfort. It features a generously sized bedroom with a
+        private half bath, a fully-equipped, modern kitchen, and a spacious living room. The apartment also includes a
+        dining area perfect for intimate meals and a private balcony offering city views. The property is completed with
+        a full-sized bathroom, making it an ideal choice for singles, couples, or business travelers.</p>
+
+    <!-- Content for Services section goes here -->
+    <section class="services-section">
+        <div class="service-item">
+            <i class="fas fa-wifi"></i>
+            <p>WiFi</p>
+        </div>
+        <div class="service-item">
+            <i class="fas fa-tv"></i>
+            <p>TV</p>
+        </div>
+        <div class="service-item">
+            <i class="fas fa-parking"></i>
+            <p>Parking</p>
+        </div>
+        <div class="service-item">
+            <i class="fas fa-utensils"></i>
+            <p>Kitchen Utensils</p>
+        </div>
+        <div class="service-item">
+            <i class="fas fa-shower"></i>
+            <p>Hot Water</p>
+        </div>
+        <div class="service-item">
+            <i class="fas fa-washer"></i>
+            <p>Washer Machine</p>
+        </div>
+        <div class="service-item">
+            <i class="fas fa-bed"></i>
+            <p>Sheets</p>
+        </div>
+        <div class="service-item">
+            <i class="fas fa-bath"></i>
+            <p>Towels</p>
+        </div>
+    </section>
+</div>
+
+<br><br>
+
+<div class="container" id="locationSection">
+    <h2>Location</h2>
+    <p> Piantini is one of the most vibrant neighborhoods in Santo Domingo, the capital of the Dominican Republic. An
+        upscale and modern neighborhood, it boasts a rich fusion of contemporary living and Caribbean charm. </p>
+
+    <h4>Attractions</h4>
+    <p>
+        <img th:src="@{/images/ZonaColonial1.jpg}" alt="Zona Colonial" class="float-right"/>
+        Piantini's main attractions lie in its bustling city life. Its cosmopolitan vibe presents itself in the form of
+        towering modern architectures, green urban parks, and bustling streets, each telling a different story of the
+        neighborhood's evolution.
+        One notable landmark is the "Obelisco Macho del Malecón," an obelisk painted by prominent Dominican artists as a
+        tribute to the city's rich history. Another is the National Botanical Garden, just a short drive away, where you
+        can wander around in 400 acres of tropical flora.</p>
+
+    <h4>Malls & Supermarkets</h4>
+    <p> Piantini is famous for its shopping scene. The neighborhood is home to the Blue Mall Santo Domingo, a premium
+        shopping destination featuring high-end international brands like Louis Vuitton, Cartier, and Bvlgari. A few
+        steps away, you'll find Agora Mall, offering a wide range of stores and a food court with international cuisine.
+        For daily needs and groceries, there's a host of supermarkets including Nacional Supermarket and Bravo
+        Supermarket, both offering a range of local and international products.</p>
+
+    <h4>Beaches</h4>
+    <img th:src="@{/images/BocaChica.jpg}" alt="Boca Chica Beach" class="float-right"/>
+
+    <p> While Piantini itself doesn't have a beach, it's well situated for day trips to some of the Caribbean's most
+        stunning beaches. Boca Chica, a popular beach among locals and tourists, is about an hour's drive away. For more
+        secluded and pristine beach experiences, you might want to venture a little further to Juan Dolio or Punta
+        Cana.</p>
+
+    <h4>Activities</h4>
+    <p> The neighborhood is bustling with activities. You can go shopping, dine in gourmet restaurants, or explore the
+        nightlife in one of the many bars or clubs. You might also enjoy exploring the local art scene at Bellapart
+        Museum, or catching a live performance at the National Theatre.
+    </p>
+
+    <br><br>
+    <br><br>
+    <br><br>
+    <br><br>
+    <br><br>
+
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+
 </body>
+
+<footer>
+    <p>&copy; Luxury Apartments 2023</p>
+</footer>
+
+
 </html>

@@ -1,0 +1,17 @@
+/* image-float.css */
+
+.float-right {
+    float: right;
+    margin-left: 15px;
+    width: 50%;
+}
+
+.float-left {
+    float: right;
+    margin-left: 15px;
+    width: 50%;
+}
+
+.clear-float {
+    clear: both;
+}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Reservations</title>
+    <link rel="stylesheet" href="/css/common.css">
+    <link rel="stylesheet" href="/css/list-reservations.css">
+
+
+</head>
+<body>
+<h1>Reservations</h1>
+
+<table class="my-table">
+    <thead>
+    <tr>
+        <th>Reservation Number</th>
+        <th>Number of Guests</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="reservation : ${reservations}">
+        <td th:text="${reservation.id}"></td>
+        <td th:text="${reservation.numberOfGuests}"></td>
+        <td th:text="${reservation.startDate}"></td>
+        <td th:text="${reservation.endDate}"></td>
+        <td>
+            <div th:if="${#authorization.expression('hasRole(''ADMINISTRATOR'')')}">
+                <!-- <a th:href="@{/reservations/edit/{id}(id=${reservation.id})}">Edit</a> -->
+                <a th:href="@{/reservations/delete/{id}(id=${reservation.id})}"
+                   onclick="return confirm('Are you sure?')">Cancel</a>
+            </div>
+        </td>
+    </tr>
+
+    </tbody>
+</table>
+<button type="button" class="btn btn-primary" onclick="location.href='home';">Back Home</button>
+</body>
+
+<footer>
+    <p>&copy; Luxury Apartments 2023</p>
+</footer>
+
+</html>

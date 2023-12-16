@@ -1,0 +1,84 @@
+/* login.css */
+.container {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: left;
+
+}
+
+.card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.card-header {
+    background-color: #008080; /* Teal color */
+    color: white;
+    padding: 10px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    text-align: center;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.card-text {
+    margin-bottom: 20px;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group input {
+    width: 70%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px; /* Rounded edges for inputs */
+    box-sizing: border-box;
+}
+
+/* Style for login and register buttons */
+.btn {
+    background-color: #007bff; /* Bootstrap primary color */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100px;
+    display: block;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn:hover {
+    background-color: darken(#007bff, 10%);
+}
+
+/* Alert styles */
+.alert {
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.alert-danger {
+    background-color: #ffdddd;
+    border: 1px solid #ff0000;
+}
+
+.alert-success {
+    background-color: #ddffdd;
+    border: 1px solid #008000;
+}

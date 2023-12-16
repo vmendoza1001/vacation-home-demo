@@ -1,0 +1,77 @@
+/* common.css */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    margin: 35px;
+    padding: 0;
+    min-height: 100vh;
+}
+
+.content {
+    flex: 1; /* This will allow the content to expand and push the footer down */
+}
+
+h1, h2, h3 {
+    color: #008080; /* Teal color */
+    text-align: center;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #ffffff;
+    border-top: 1px solid #dddddd;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+footer p {
+    margin: 0;
+    color: #000000;
+}
+
+.btn {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: darken(#007bff, 10%);
+}
+
+/* Shared Alert Styles */
+.alert {
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+}
+
+.alert-danger {
+    background-color: #ffdddd;
+    border: 1px solid #ff0000;
+}
+
+.alert-success {
+    background-color: #ddffdd;
+    border: 1px solid #008000;
+}
+
+/* Link Styles */
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}

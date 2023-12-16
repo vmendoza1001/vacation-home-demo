@@ -1,0 +1,24 @@
+/* reservations-list.css */
+.my-table {
+    width: 90%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    border: 1px solid black;
+}
+
+.my-table th,
+.my-table td {
+    text-align: left; /* Align text to the left */
+    padding: 8px;
+    border: 1px solid black;
+}
+
+.my-table th {
+    background-color: #008080; /* Teal color */
+    color: white;
+    border-radius: 5px; /* Rounded corners for header */
+}
+
+.my-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
